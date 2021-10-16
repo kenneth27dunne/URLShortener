@@ -11,17 +11,39 @@ namespace URLShortener.API.Controllers
     [Route("[controller]")]
     public class URLController : Controller
     {
-        private IURLManager _uRLManager;
+        private IURLManager _URLManager;
 
         public URLController(IURLManager uRLManager)
         {
-            _uRLManager = uRLManager;
+            _URLManager = uRLManager;
         }
 
         [HttpGet("GetByShortURL/{shortUrl}")]
         public async Task<IActionResult> GetByShortURL(string shortUrl)
         {
-            return Ok(await _uRLManager.GetByShortURL(shortUrl));
+            try
+            {
+                return Ok(await _URLManager.GetByShortURL(shortUrl));
+            }
+            catch (Exception ex)
+            {
+                // log exception
+                return BadRequest();
+            }
+        }
+
+        [HttpPost("Generate/ShortURL")]
+        public async Task<IActionResult> AddNewURL(string longUrl)
+        {
+            try
+            {
+                return Ok(await _URLManager.AddNewURL(longUrl));
+            }
+            catch (Exception ex)
+            {
+                // log exception
+                return BadRequest();
+            }
         }
     }
 }
