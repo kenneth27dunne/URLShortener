@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\URLShortenerBLL.Interface\URLShortener.BLL.Interface.csproj" />
+    <ProjectReference Include="..\URLShortenerDAL.Interface\URLShortener.DAL.Interface.csproj" />
+  </ItemGroup>
+
+</Project>
