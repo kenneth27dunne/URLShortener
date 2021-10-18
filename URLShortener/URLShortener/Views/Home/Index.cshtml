@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Mini URL!</h1>
+    <p>Simply Paste you long URL into the field below and we'll generate a Mini URL for you!</p>
+
+    <form method="post" id="main-form">
+        <div class="form-group">
+            <input type="url" name="longURL" placeholder="eg. https://www.google.com/" class="form-control" />
+            <button type="submit" class="btn btn-primary">Get Short URL</button>
+        </div>
+    </form>
+
+    @if (!String.IsNullOrEmpty(ViewBag.ShortUrl))
+    {
+        <div>
+            <p>Below is your new short URL!!</p>
+            <a href="@ViewBag.ShortUrl" target="_blank">@ViewBag.ShortUrl</a>
+        </div>
+    }
+</div>

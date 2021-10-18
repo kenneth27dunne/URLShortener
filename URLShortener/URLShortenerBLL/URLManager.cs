@@ -21,11 +21,7 @@ namespace URLShortenerBLL
 
         public async Task<string> GetByShortURL(string shortUrl)
         {
-            shortUrl = WebUtility.UrlDecode(shortUrl);
-            if (!shortUrl.ToLower().Contains(_domainName.ToLower()))
-                throw new Exception("URL does not below to us");
-
-            var res = await _uRLRepository.GetByShortURL(shortUrl.Remove(0, _domainName.Length + 1));
+            var res = await _uRLRepository.GetByShortURL(shortUrl);
             return res.LongURL;
         }
 
