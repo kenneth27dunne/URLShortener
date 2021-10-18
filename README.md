@@ -2,7 +2,7 @@
 
 **Created with**
 
-C# .Net Core 3.1 Web API
+C# .Net Core 3.1 
 DB SQLITE
 Visual Studio 2019
 
